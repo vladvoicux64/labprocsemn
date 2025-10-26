@@ -1,6 +1,9 @@
+import os
 import numpy as np
 import sympy as sp
 import matplotlib.pyplot as plt
+
+os.makedirs("artifacts", exist_ok=True)
 
 def plot_1():
     def x(t):
@@ -30,6 +33,8 @@ def plot_1():
     axs[1].plot(ts, ys)
     axs[2].set_title("c")
     axs[2].stem(us, zs)
+
+    fig.savefig("artifacts/lab_1_ex_1_plot.pdf")
 
 
 def plot_2():
@@ -63,7 +68,7 @@ def plot_2():
                 mine[x][y] = 1
                 mine[y][x] = 1
 
-    fig1, axs1 = plt.subplots(4, 1, figsize=(6, 12))  # 4 rows, 1 column
+    fig1, axs1 = plt.subplots(4, 1, figsize=(6, 12))
     fig1.suptitle("ex 2 - line plots")
     axs1[0].set_title("a")
     axs1[0].stem(ts, xs)
@@ -73,8 +78,9 @@ def plot_2():
     axs1[2].plot(hs, zs)
     axs1[3].set_title("d")
     axs1[3].plot(hs, squares)
+    fig1.savefig("artifacts/lab_1_ex_2_plot.pdf")
 
-    fig2, axs2 = plt.subplots(2, 1, figsize=(6, 8))  # 2 rows, 1 column
+    fig2, axs2 = plt.subplots(2, 1, figsize=(6, 8))
     fig2.suptitle("ex 2 - images")
     axs2[0].set_title("e")
     axs2[0].imshow(random)
@@ -82,9 +88,9 @@ def plot_2():
     axs2[1].set_title("f")
     axs2[1].imshow(mine)
     axs2[1].axis('off')
+    fig2.savefig("artifacts/lab_1_ex_2_img.pdf")
 
-    fig2.savefig("lab_1_ex_2_img.pdf")
-
+plot_1()
 plot_2()
 plt.show()
 
