@@ -199,8 +199,8 @@ def plot_6():
     ffts = np.abs(ffts[:, :len(ffts[0])//2]).T
     ffts = 20 * np.log10(ffts)
 
-    bins = samplerate / window_size * np.arange(1, window_size + 1)
-
+    fft_len = win_pow2 // 2
+    bins = samplerate / win_pow2 * np.arange(fft_len)
     fig, axs = plt.subplots(figsize=(10, 6))
 
     im = axs.imshow(ffts, aspect='auto', origin='lower',
