@@ -98,10 +98,10 @@ def plot_3():
     print("Playing squares (square wave)...")
     sd.play(squares, samplerate=samplerate); sd.wait()
 
-    wavfile.write("xs.wav", samplerate, xs)
+    wavfile.write("artifacts/xs.wav", samplerate, xs)
     print("Saved xs.wav")
 
-    wavfile.read("xs.wav")
+    wavfile.read("artifacts/xs.wav")
     print("Read xs.wav")
 
 
